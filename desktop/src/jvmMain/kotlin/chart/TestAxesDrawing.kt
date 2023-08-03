@@ -17,13 +17,13 @@ fun TestAxesDrawing() {
     val lineParameters = LineParameters(
         dataName = "revenue",
         data = listOf(
-            10000.0,
+            80000.0,
+            50000.0,
             20000.0,
+            30000.0,
             40000.0,
-            50000.0,
-            20000.0,
+            10000.0,
             70000.0,
-            50000.0,
             90000.0,
         ),
         lineColor = Color.Blue,
@@ -31,20 +31,82 @@ fun TestAxesDrawing() {
         lineShadow = LineShadow.SHADOW
     )
 
-    val xAxisList = listOf(
+    val xAxisListMonth = listOf(
         "Jan",
         "Feb",
+        "march",
+        "april",
+    )
+    val xAxisListYear = listOf(
+        "2012",
+        "2013",
+        "2014",
+        "2015",
+    )
+    val xAxisListWeek = listOf(
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
     )
 
     val lineParameters2 = LineParameters(
         dataName = "revenue",
         data = listOf(
+            80000.0,
+            20000.0,
+            30000.0,
+            80000.0,
+            90000.0,
             50000.0,
             40000.0,
+            90000.0,
+        ),
+        lineColor = Color.Red,
+        lineType = LineType.QUADRATIC_LINE,
+        lineShadow = LineShadow.BLANK
+    )
+    val lineParameters3 = LineParameters(
+        dataName = "revenue",
+        data = listOf(
+            90000.0,
+            70000.0,
             30000.0,
+            50000.0,
+            40000.0,
+            90000.0,
+            50000.0,
+            90000.0,
+        ),
+        lineColor = Color.Red,
+        lineType = LineType.QUADRATIC_LINE,
+        lineShadow = LineShadow.BLANK
+    )
+    val lineParameters4 = LineParameters(
+        dataName = "revenue",
+        data = listOf(
+            60000.0,
+            40000.0,
+            30000.0,
+            70000.0,
+            20000.0,
             50000.0,
             20000.0,
             90000.0,
+        ),
+        lineColor = Color.Red,
+        lineType = LineType.QUADRATIC_LINE,
+        lineShadow = LineShadow.BLANK
+    )
+    val lineParameters5 = LineParameters(
+        dataName = "revenue",
+        data = listOf(
+            50000.0,
+            20000.0,
+            30000.0,
+            30000.0,
+            20000.0,
+            40000.0,
             10000.0,
             90000.0,
         ),
@@ -52,15 +114,45 @@ fun TestAxesDrawing() {
         lineType = LineType.QUADRATIC_LINE,
         lineShadow = LineShadow.BLANK
     )
+    val lineParameters6 = LineParameters(
+        dataName = "revenue",
+        data = listOf(
+            20000.0,
+            40000.0,
+            70000.0,
+            50000.0,
+            20000.0,
+            10000.0,
+            80000.0,
+            90000.0,
+        ),
+        lineColor = Color.Red,
+        lineType = LineType.QUADRATIC_LINE,
+        lineShadow = LineShadow.BLANK
+    )
 
-    val chart = Chart(
-        lines = listOf(lineParameters, lineParameters2),
-        backGroundGrid = BackGroundGrid.SHOW,
-        backGroundColor = Color.White,
+    val linesMonth = Lines(
+        linesParameters = listOf(lineParameters, lineParameters2),
         xAxisLabel = "month",
         yAxisLabel = "money",
-        xAxisData = xAxisList
+        xAxisData = xAxisListMonth,
+        timePeriod = TimePeriod.MONTHLY
     )
+    val linesWeek = Lines(
+        linesParameters = listOf(lineParameters3, lineParameters4),
+        xAxisLabel = "month",
+        yAxisLabel = "money",
+        xAxisData = xAxisListWeek,
+        timePeriod = TimePeriod.WEEKLY
+    )
+    val linesYear = Lines(
+        linesParameters = listOf(lineParameters5, lineParameters6),
+        xAxisLabel = "month",
+        yAxisLabel = "money",
+        xAxisData = xAxisListYear,
+        timePeriod = TimePeriod.YEARLY
+    )
+    val combineLines= listOf(linesMonth,linesWeek,linesYear)
 
     // for x or y this list?????
     val revenueData = listOf(
@@ -79,8 +171,7 @@ fun TestAxesDrawing() {
             modifier = Modifier.size(500.dp)
                 .align(Alignment.CenterHorizontally)
                 .padding(top = 24.dp),
-            linesParameters = chart.lines,
-            xAxisData = chart.xAxisData,
+            lines =combineLines
         )
     }
 }

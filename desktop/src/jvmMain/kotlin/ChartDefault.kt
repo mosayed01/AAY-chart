@@ -19,7 +19,7 @@ object ChartDefault {
         timePeriod = TimePeriod.MONTHLY,
     )
     val chartUiState:ChartUiState= ChartUiState(
-        lines = lines,
+        lines = listOf(lines),
         backGroundColor = Color.Transparent,
         backGroundGrid = BackGroundGrid.SHOW,
     )
