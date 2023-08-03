@@ -21,12 +21,12 @@ import model.LineType
 @Composable
 fun AxesDrawing(
     modifier: Modifier = Modifier,
-    linesParameters: List<LineParameters> = ChartDefault.chart.lines,
-    backGroundGrid: BackGroundGrid = ChartDefault.chart.backGroundGrid,
-    backGroundColor: Color = ChartDefault.chart.backGroundColor,
-    xAxisLabel: String = ChartDefault.chart.xAxisLabel,
-    yAxisLabel: String = ChartDefault.chart.yAxisLabel,
-    xAxisData: List<String> = ChartDefault.chart.xAxisData,
+    linesParameters: List<LineParameters> = ChartDefault.chartUiState.lines.linesParameters,
+    backGroundGrid: BackGroundGrid = ChartDefault.chartUiState.backGroundGrid,
+    backGroundColor: Color = ChartDefault.chartUiState.backGroundColor,
+    xAxisLabel: String = ChartDefault.chartUiState.lines.xAxisLabel,
+    yAxisLabel: String = ChartDefault.chartUiState.lines.yAxisLabel,
+    xAxisData: List<String> = ChartDefault.chartUiState.lines.xAxisData,
 ) {
 
     val spacing = 130f

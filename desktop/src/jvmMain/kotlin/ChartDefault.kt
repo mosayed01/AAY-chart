@@ -11,12 +11,16 @@ object ChartDefault {
         lineShadow = LineShadow.SHADOW,
     )
 
-    val chart: Chart = Chart(
-        lines = listOf(lineParameters),
-        backGroundGrid = BackGroundGrid.SHOW,
-        backGroundColor = Color.Black,
+    private val lines: Lines = Lines(
+        linesParameters = listOf(lineParameters),
         xAxisLabel = "month",
         yAxisLabel = "money",
-        xAxisData = emptyList()
+        xAxisData = emptyList(),
+        timePeriod = TimePeriod.MONTHLY,
+    )
+    val chartUiState:ChartUiState= ChartUiState(
+        lines = lines,
+        backGroundColor = Color.Transparent,
+        backGroundGrid = BackGroundGrid.SHOW,
     )
 }
